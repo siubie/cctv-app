@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
         requestPermission();
     }
 
-
     /**
      * Requesting multiple permissions (storage and location) at once
      * This uses multiple permission model from dexter

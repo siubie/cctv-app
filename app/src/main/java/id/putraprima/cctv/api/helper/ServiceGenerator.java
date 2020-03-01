@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ServiceGenerator {
 
-    private static final String BASE_URL = "https://cctv.putraprima.id/";
+    private static final String BASE_URL = "https://cctv.putraprima.id";
 
     private static Retrofit.Builder builder =
             new Retrofit.Builder()
