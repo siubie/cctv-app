@@ -13,5 +13,5 @@ public interface ApiInterface {
 //    Call<List<Angkot>> getAngkot();
 
     @GET("/angkot")
-    Call<Envelope<Angkot>> getAngkot();
+    Call<Envelope<List<Angkot>>> getAngkot();
 }

@@ -23,15 +23,8 @@ import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 
 import java.util.List;
 
-import id.putraprima.cctv.api.helper.ServiceGenerator;
-import id.putraprima.cctv.api.models.Angkot;
-import id.putraprima.cctv.api.models.Envelope;
-import id.putraprima.cctv.api.services.ApiInterface;
+import id.putraprima.cctv.ui.activites.AngkotActivity;
 import id.putraprima.cctv.ui.activites.MapActivity;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,40 +33,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         requestPermission();
-        ApiInterface service = ServiceGenerator.createService(ApiInterface.class);
-
-        Call<Envelope<Angkot>> call = service.getAngkot();
-        call.enqueue(new Callback<Envelope<Angkot>>() {
-            @Override
-            public void onResponse(Call<Envelope<Angkot>> call, Response<Envelope<Angkot>> response) {
-                if (response.isSuccessful()){
-                    List<Angkot> angkotList = response.body().getData();
-                    for(Angkot angkot:angkotList){
-                        Log.d("Angkot", angkot.getNama()+" "+ angkot.getRute());
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Envelope<Angkot>> call, Throwable t) {
-                Log.e("Error fetching angkot",t.getMessage());
-            }
-        });
-//        call.enqueue(new Callback<List<Angkot>>() {
-//            @Override
-//            public void onResponse(Call<List<Angkot>> call, Response<List<Angkot>> response) {
-//                if(response.isSuccessful()){
-//                    for(Angkot angkot:response.body()){
-//                        Log.d("Angkot", angkot.getNama()+" "+ angkot.getRute());
-//                    }
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<List<Angkot>> call, Throwable t) {
-//                Log.e("Error fetching angkot",t.getMessage());
-//            }
-//        });
     }
 
     /**
@@ -154,6 +113,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void handleOpenMap(View view) {
         Intent i = new Intent(this, MapActivity.class);
+        startActivity(i);
+    }
+
+    public void handleOpenAngkot(View view) {
+        Intent i = new Intent(this, AngkotActivity.class);
         startActivity(i);
     }
 }

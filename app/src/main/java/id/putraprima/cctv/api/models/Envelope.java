@@ -5,15 +5,15 @@ import java.util.List;
 public class Envelope<T> {
    Links links;
    Meta meta;
-   List<T> data;
+   T data;
 
-   public Envelope(Links links, Meta meta, List<T> data) {
+   public Envelope() {
+   }
+
+   public Envelope(Links links, Meta meta, T data) {
       this.links = links;
       this.meta = meta;
       this.data = data;
-   }
-
-   public Envelope() {
    }
 
    public Links getLinks() {
@@ -32,11 +32,11 @@ public class Envelope<T> {
       this.meta = meta;
    }
 
-   public List<T> getData() {
+   public T getData() {
       return data;
    }
 
-   public void setData(List<T> data) {
+   public void setData(T data) {
       this.data = data;
    }
 }

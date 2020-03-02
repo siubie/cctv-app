@@ -1,6 +1,5 @@
 package id.putraprima.cctv.api.helper;
 
-import id.putraprima.cctv.api.converters.UnwrapEnvelopeConverterFactory;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
