@@ -2,17 +2,16 @@ package id.putraprima.cctv.api.models;
 
 public class Angkot {
     public int id;
-    public String name;
+    public String nama;
     public String rute;
     public String peta;
-
 
     public Angkot() {
     }
 
-    public Angkot(int id, String name, String rute, String peta) {
+    public Angkot(int id, String nama, String rute, String peta) {
         this.id = id;
-        this.name = name;
+        this.nama = nama;
         this.rute = rute;
         this.peta = peta;
     }
@@ -25,12 +24,12 @@ public class Angkot {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNama() {
+        return nama;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNama(String nama) {
+        this.nama = nama;
     }
 
     public String getRute() {

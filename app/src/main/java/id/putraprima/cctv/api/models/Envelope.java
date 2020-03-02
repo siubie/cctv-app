@@ -1,17 +1,19 @@
 package id.putraprima.cctv.api.models;
 
+import java.util.List;
+
 public class Envelope<T> {
    Links links;
    Meta meta;
-   T data;
+   List<T> data;
 
-   public Envelope() {
-   }
-
-   public Envelope(Links links, Meta meta, T data) {
+   public Envelope(Links links, Meta meta, List<T> data) {
       this.links = links;
       this.meta = meta;
       this.data = data;
+   }
+
+   public Envelope() {
    }
 
    public Links getLinks() {
@@ -30,11 +32,11 @@ public class Envelope<T> {
       this.meta = meta;
    }
 
-   public T getData() {
+   public List<T> getData() {
       return data;
    }
 
-   public void setData(T data) {
+   public void setData(List<T> data) {
       this.data = data;
    }
 }
