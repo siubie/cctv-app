@@ -18,6 +18,7 @@ import com.mikepenz.fastadapter.listeners.OnClickListener;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import id.putraprima.cctv.R;
 import id.putraprima.cctv.api.helper.ServiceGenerator;
 import id.putraprima.cctv.api.models.Angkot;
@@ -28,14 +29,14 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class AngkotActivity extends AppCompatActivity {
+    @BindView(R.id.rv_angkot)
     RecyclerView rv_angkot;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_angkot);
-        rv_angkot = findViewById(R.id.rv_angkot);
-
+        ButterKnife.bind(this);
         ItemAdapter itemAdapter = new ItemAdapter();
         FastAdapter fastAdapter = FastAdapter.with(itemAdapter);
         fastAdapter.withOnClickListener(new OnClickListener() {
