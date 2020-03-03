@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.activites.AngkotActivity"
-    android:layout_margin="16dp"
+    android:padding="8dp"
+    android:background="@color/background"
     >
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_angkot"

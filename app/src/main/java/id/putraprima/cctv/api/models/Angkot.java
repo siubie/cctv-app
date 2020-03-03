@@ -1,12 +1,10 @@
 package id.putraprima.cctv.api.models;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.mikepenz.fastadapter.FastAdapter;
@@ -22,13 +20,50 @@ public class Angkot extends AbstractItem<Angkot, Angkot.ViewHolder> {
     public int id;
     public String nama;
     public String rute;
-    public String peta;
+    public String peta_keluar;
+    public String peta_masuk;
+    public String jalur_masuk;
+    public String jalur_keluar;
 
-    public Angkot(int id, String nama, String rute, String peta) {
+    public Angkot(int id, String nama, String rute, String peta_keluar, String peta_masuk, String jalur_masuk, String jalur_keluar) {
         this.id = id;
         this.nama = nama;
         this.rute = rute;
-        this.peta = peta;
+        this.peta_keluar = peta_keluar;
+        this.peta_masuk = peta_masuk;
+        this.jalur_masuk = jalur_masuk;
+        this.jalur_keluar = jalur_keluar;
+    }
+
+    public String getPeta_masuk() {
+        return peta_masuk;
+    }
+
+    public void setPeta_masuk(String peta_masuk) {
+        this.peta_masuk = peta_masuk;
+    }
+
+    public String getJalur_masuk() {
+        return jalur_masuk;
+    }
+
+    public void setJalur_masuk(String jalur_masuk) {
+        this.jalur_masuk = jalur_masuk;
+    }
+
+    public String getJalur_keluar() {
+        return jalur_keluar;
+    }
+
+    public void setJalur_keluar(String jalur_keluar) {
+        this.jalur_keluar = jalur_keluar;
+    }
+
+    public Angkot(int id, String nama, String rute, String peta_keluar) {
+        this.id = id;
+        this.nama = nama;
+        this.rute = rute;
+        this.peta_keluar = peta_keluar;
     }
 
     public Angkot() {
@@ -64,12 +99,12 @@ public class Angkot extends AbstractItem<Angkot, Angkot.ViewHolder> {
         this.rute = rute;
     }
 
-    public String getPeta() {
-        return peta;
+    public String getPeta_keluar() {
+        return peta_keluar;
     }
 
-    public void setPeta(String peta) {
-        this.peta = peta;
+    public void setPeta_keluar(String peta_keluar) {
+        this.peta_keluar = peta_keluar;
     }
 
     @Override
@@ -101,7 +136,7 @@ public class Angkot extends AbstractItem<Angkot, Angkot.ViewHolder> {
         public void bindView(Angkot item, List<Object> payloads) {
             nama_angkot.setText(item.getNama());
             rute_angkot.setText(item.getRute());
-            Glide.with(itemView.getContext()).load("https://cctv.putraprima.id/uploads/"+item.getPeta()).into(peta_angkot);
+            Glide.with(itemView.getContext()).load("https://cctv.putraprima.id/uploads/"+item.getPeta_keluar()).into(peta_angkot);
         }
 
         @Override

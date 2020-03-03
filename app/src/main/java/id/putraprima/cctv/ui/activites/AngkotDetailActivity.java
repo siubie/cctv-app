@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.ortiz.touchview.TouchImageView;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import id.putraprima.cctv.R;
@@ -15,6 +18,8 @@ public class AngkotDetailActivity extends AppCompatActivity {
     TextView nama_angkot;
     @BindView(R.id.rute_angkot)
     TextView rute_angkot;
+    @BindView(R.id.peta_angkot)
+    TouchImageView peta_angkot;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +33,7 @@ public class AngkotDetailActivity extends AppCompatActivity {
 
         nama_angkot.setText(nama);
         rute_angkot.setText(rute);
+        Glide.with(getApplicationContext()).load("https://cctv.putraprima.id/uploads/"+peta).into(peta_angkot);
 
 
     }

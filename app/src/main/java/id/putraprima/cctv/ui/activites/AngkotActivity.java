@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import com.mikepenz.fastadapter.FastAdapter;
 import com.mikepenz.fastadapter.IAdapter;
@@ -16,7 +15,6 @@ import com.mikepenz.fastadapter.IItem;
 import com.mikepenz.fastadapter.adapters.ItemAdapter;
 import com.mikepenz.fastadapter.listeners.OnClickListener;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,7 +47,7 @@ public class AngkotActivity extends AppCompatActivity {
                 Intent i = new Intent(getApplicationContext(),AngkotDetailActivity.class);
                 i.putExtra("nama",angkotList.get(position).getNama());
                 i.putExtra("rute",angkotList.get(position).getRute());
-                i.putExtra("peta",angkotList.get(position).getPeta());
+                i.putExtra("peta",angkotList.get(position).getPeta_keluar());
                 startActivity(i);
                 return true;
             }
