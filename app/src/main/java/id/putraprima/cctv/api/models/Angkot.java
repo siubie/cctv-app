@@ -1,11 +1,14 @@
 package id.putraprima.cctv.api.models;
 
+import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.mikepenz.fastadapter.FastAdapter;
 import com.mikepenz.fastadapter.items.AbstractItem;
 
@@ -86,6 +89,9 @@ public class Angkot extends AbstractItem<Angkot, Angkot.ViewHolder> {
         @BindView(R.id.rute_angkot)
         TextView rute_angkot;
 
+        @BindView((R.id.peta_angkot))
+        ImageView peta_angkot;
+
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
@@ -95,7 +101,7 @@ public class Angkot extends AbstractItem<Angkot, Angkot.ViewHolder> {
         public void bindView(Angkot item, List<Object> payloads) {
             nama_angkot.setText(item.getNama());
             rute_angkot.setText(item.getRute());
-
+            Glide.with(itemView.getContext()).load("https://cctv.putraprima.id/uploads/"+item.getPeta()).into(peta_angkot);
         }
 
         @Override

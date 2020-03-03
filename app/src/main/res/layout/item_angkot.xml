@@ -13,12 +13,11 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/media_image"
+            android:id="@+id/peta_angkot"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="150dp"
             android:scaleType="centerCrop"
             app:srcCompat="@android:color/darker_gray"
-            app:layout_constraintDimensionRatio="H,16:9"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -37,7 +36,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/media_image" />
+            app:layout_constraintTop_toBottomOf="@+id/peta_angkot" />
 
         <TextView
             android:id="@+id/rute_angkot"

@@ -31,10 +31,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.activites.AngkotActivity"></activity>
-        <activity android:name=".ui.activites.MapActivity" />
-        <activity android:name=".ui.activites.CctvActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.activites.AngkotDetailActivity"
+            android:screenOrientation="nosensor"
+            ></activity>
+        <activity
+            android:name=".ui.activites.AngkotActivity"
+            android:screenOrientation="nosensor" />
+        <activity
+            android:name=".ui.activites.MapActivity"
+            android:screenOrientation="nosensor" />
+        <activity
+            android:name=".ui.activites.CctvActivity"
+            android:screenOrientation="nosensor" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="nosensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

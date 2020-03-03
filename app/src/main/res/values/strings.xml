@@ -12,4 +12,5 @@
     <string name="popay_sopyan">https://engine-home.ddns.net/popeye.mp4</string>
     <string name="hls_gcp">https://engine-cctv.ddns.net/live-tv/hls/stream.m3u8</string>
     <string name="hls_gcp_work">https://engine-cctv.ddns.net/live-tv/hls/index.m3u8</string>
+    <string name="base_url">https://cctv.putraprima.id</string>
 </resources>

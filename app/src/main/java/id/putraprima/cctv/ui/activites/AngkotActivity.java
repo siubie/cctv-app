@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,6 +16,8 @@ import com.mikepenz.fastadapter.IItem;
 import com.mikepenz.fastadapter.adapters.ItemAdapter;
 import com.mikepenz.fastadapter.listeners.OnClickListener;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -31,6 +34,7 @@ import retrofit2.Response;
 public class AngkotActivity extends AppCompatActivity {
     @BindView(R.id.rv_angkot)
     RecyclerView rv_angkot;
+    List<Angkot> angkotList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +46,12 @@ public class AngkotActivity extends AppCompatActivity {
         fastAdapter.withOnClickListener(new OnClickListener() {
             @Override
             public boolean onClick(View v, IAdapter adapter, IItem item, int position) {
-                Toast.makeText(getApplicationContext(),"Clicked",Toast.LENGTH_SHORT).show();
-                return false;
+                Intent i = new Intent(getApplicationContext(),AngkotDetailActivity.class);
+                i.putExtra("nama",angkotList.get(position).getNama());
+                i.putExtra("rute",angkotList.get(position).getRute());
+                i.putExtra("peta",angkotList.get(position).getPeta());
+                startActivity(i);
+                return true;
             }
         });
         rv_angkot.setAdapter(fastAdapter);
@@ -57,6 +65,7 @@ public class AngkotActivity extends AppCompatActivity {
             public void onResponse(Call<Envelope<List<Angkot>>> call, Response<Envelope<List<Angkot>>> response) {
                 if (response.isSuccessful()) {
                     itemAdapter.add(response.body().getData());
+                    angkotList.addAll(response.body().getData());
                 }
             }
 
