@@ -15,9 +15,9 @@ import id.putraprima.cctv.R;
 
 public class AngkotDetailActivity extends AppCompatActivity {
     public String nama, rute, peta_angkot, jalur_masuk, jalur_keluar;
-    @BindView(R.id.nama_angkot)
+    @BindView(R.id.judul)
     TextView nama_angkot;
-    @BindView(R.id.rute_angkot)
+    @BindView(R.id.pengumuman)
     TextView rute_angkot;
     @BindView(R.id.peta_angkot)
     TouchImageView img_peta_angkot;

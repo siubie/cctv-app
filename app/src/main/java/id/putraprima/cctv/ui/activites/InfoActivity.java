@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -23,59 +22,54 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import id.putraprima.cctv.R;
 import id.putraprima.cctv.api.helper.ServiceGenerator;
-import id.putraprima.cctv.api.models.Angkot;
 import id.putraprima.cctv.api.models.Envelope;
+import id.putraprima.cctv.api.models.Info;
 import id.putraprima.cctv.api.services.ApiInterface;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class AngkotActivity extends AppCompatActivity {
-    @BindView(R.id.rv_angkot)
-    RecyclerView rv_angkot;
+public class InfoActivity extends AppCompatActivity {
+    @BindView(R.id.rv_info)
+    RecyclerView rv_info;
 
-    List<Angkot> angkotList = new ArrayList<>();
+    List<Info> infoList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_angkot);
+        setContentView(R.layout.activity_info);
         ButterKnife.bind(this);
 
         ItemAdapter itemAdapter = new ItemAdapter();
         FastAdapter fastAdapter = FastAdapter.with(itemAdapter);
+
         fastAdapter.withOnClickListener(new OnClickListener() {
             @Override
             public boolean onClick(View v, IAdapter adapter, IItem item, int position) {
-                Toast.makeText(AngkotActivity.this, "Clicked", Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(getApplicationContext(),AngkotDetailActivity.class);
-                i.putExtra("nama",angkotList.get(position).getNama());
-                i.putExtra("rute",angkotList.get(position).getRute());
-                i.putExtra("jalur_masuk",angkotList.get(position).getJalur_masuk());
-                i.putExtra("jalur_keluar",angkotList.get(position).getJalur_keluar());
-                i.putExtra("peta_angkot",angkotList.get(position).getPeta_keluar());
-                startActivity(i);
+                Toast.makeText(InfoActivity.this, "Clicked", Toast.LENGTH_SHORT).show();
                 return true;
             }
         });
-        rv_angkot.setAdapter(fastAdapter);
+
+        rv_info.setAdapter(fastAdapter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        rv_angkot.setLayoutManager(layoutManager);
+        rv_info.setLayoutManager(layoutManager);
 
         ApiInterface service = ServiceGenerator.createService(ApiInterface.class);
 
-        Call<Envelope<List<Angkot>>> call = service.getAngkot();
-        call.enqueue(new Callback<Envelope<List<Angkot>>>() {
+        Call<Envelope<List<Info>>> call = service.getInfo();
+        call.enqueue(new Callback<Envelope<List<Info>>>() {
             @Override
-            public void onResponse(Call<Envelope<List<Angkot>>> call, Response<Envelope<List<Angkot>>> response) {
+            public void onResponse(Call<Envelope<List<Info>>> call, Response<Envelope<List<Info>>> response) {
                 if (response.isSuccessful()) {
                     itemAdapter.add(response.body().getData());
-                    angkotList.addAll(response.body().getData());
+                    infoList.addAll(response.body().getData());
                 }
             }
 
             @Override
-            public void onFailure(Call<Envelope<List<Angkot>>> call, Throwable t) {
+            public void onFailure(Call<Envelope<List<Info>>> call, Throwable t) {
                 Log.e("Error fetching angkot", t.getMessage());
             }
         });

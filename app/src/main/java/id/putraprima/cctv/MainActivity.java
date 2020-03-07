@@ -24,6 +24,7 @@ import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 import java.util.List;
 
 import id.putraprima.cctv.ui.activites.AngkotActivity;
+import id.putraprima.cctv.ui.activites.InfoActivity;
 import id.putraprima.cctv.ui.activites.MapActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -118,6 +119,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void handleOpenAngkot(View view) {
         Intent i = new Intent(this, AngkotActivity.class);
+        startActivity(i);
+    }
+
+    public void handleOpenInfo(View view) {
+        Intent i = new Intent(this, InfoActivity.class);
         startActivity(i);
     }
 }
