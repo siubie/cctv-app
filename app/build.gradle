@@ -68,8 +68,12 @@ dependencies {
     //glide
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+    implementation 'com.github.bumptech.glide:okhttp3-integration:4.11.0'
     //multidex
     implementation 'androidx.multidex:multidex:2.0.1'
+    //okhttp
+    implementation 'com.squareup.okhttp3:okhttp:3.9.1'
+
 
     testImplementation 'com.google.code.findbugs:jsr305:3.0.2'
 

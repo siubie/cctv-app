@@ -4,47 +4,155 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="8dp"
     android:background="@color/background"
+    android:padding="8dp"
     tools:context=".ui.activites.AngkotDetailActivity">
 
     <com.ortiz.touchview.TouchImageView
         android:id="@+id/peta_angkot"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:scaleType="centerCrop"
+        android:scaleType="fitXY"
+        android:layout_marginBottom="16dp"
         app:layout_constraintDimensionRatio="H,16:9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/scrollview"
         app:srcCompat="@android:color/darker_gray" />
 
-    <TextView
-        android:id="@+id/nama_angkot"
+    <ScrollView
+        android:id="@+id/scrollview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:lineSpacingExtra="8dp"
-        android:text="test"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="0dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/peta_angkot" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/peta_angkot"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
 
-    <TextView
-        android:id="@+id/rute_angkot"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:lineSpacingExtra="8dp"
-        android:text="test"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nama_angkot" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <TextView
+                android:id="@+id/txt_nama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="Nama Angkot : "
+                app:layout_constraintLeft_toLeftOf="@id/wrapper"
+                app:layout_constraintRight_toRightOf="@id/wrapper"
+                app:layout_constraintTop_toTopOf="@+id/wrapper"
+                >
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/nama_angkot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:lineSpacingExtra="8dp"
+                android:text="test"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                app:layout_constraintEnd_toEndOf="@id/wrapper"
+                app:layout_constraintStart_toStartOf="@id/wrapper"
+                app:layout_constraintTop_toBottomOf="@+id/txt_nama" />
+
+            <TextView
+                android:id="@+id/txt_rute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="Rute Angkot"
+                app:layout_constraintLeft_toLeftOf="@id/wrapper"
+                app:layout_constraintRight_toRightOf="@id/wrapper"
+                app:layout_constraintTop_toBottomOf="@+id/nama_angkot">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/rute_angkot"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:lineSpacingExtra="8dp"
+                android:text="test"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                app:layout_constraintEnd_toEndOf="@id/wrapper"
+                app:layout_constraintStart_toStartOf="@id/wrapper"
+                app:layout_constraintTop_toBottomOf="@+id/txt_rute" />
+
+            <TextView
+                android:id="@+id/txt_jalur_masuk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="Jalur Masuk"
+                app:layout_constraintEnd_toEndOf="@id/wrapper"
+                app:layout_constraintStart_toStartOf="@id/wrapper"
+                app:layout_constraintTop_toBottomOf="@+id/rute_angkot" />
+
+            <TextView
+                android:id="@+id/jalur_masuk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:lineSpacingExtra="8dp"
+                android:text="test"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                app:layout_constraintEnd_toEndOf="@id/wrapper"
+                app:layout_constraintStart_toStartOf="@id/wrapper"
+                app:layout_constraintTop_toBottomOf="@id/txt_jalur_masuk" />
+
+            <TextView
+                android:id="@+id/txt_jalur_keluar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="Jalur Keluar"
+                app:layout_constraintEnd_toEndOf="@id/wrapper"
+                app:layout_constraintStart_toStartOf="@id/wrapper"
+                app:layout_constraintTop_toBottomOf="@+id/jalur_masuk" />
+
+            <TextView
+                android:id="@+id/jalur_keluar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:lineSpacingExtra="8dp"
+                android:text="test"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                app:layout_constraintEnd_toEndOf="@id/wrapper"
+                app:layout_constraintStart_toStartOf="@id/wrapper"
+                app:layout_constraintTop_toBottomOf="@id/txt_jalur_keluar" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

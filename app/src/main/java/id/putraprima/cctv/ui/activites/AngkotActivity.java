@@ -47,7 +47,9 @@ public class AngkotActivity extends AppCompatActivity {
                 Intent i = new Intent(getApplicationContext(),AngkotDetailActivity.class);
                 i.putExtra("nama",angkotList.get(position).getNama());
                 i.putExtra("rute",angkotList.get(position).getRute());
-                i.putExtra("peta",angkotList.get(position).getPeta_keluar());
+                i.putExtra("jalur_masuk",angkotList.get(position).getJalur_masuk());
+                i.putExtra("jalur_keluar",angkotList.get(position).getJalur_keluar());
+                i.putExtra("peta_angkot",angkotList.get(position).getPeta_keluar());
                 startActivity(i);
                 return true;
             }

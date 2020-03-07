@@ -7,6 +7,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.mikepenz.fastadapter.FastAdapter;
 import com.mikepenz.fastadapter.items.AbstractItem;
 
@@ -127,6 +128,12 @@ public class Angkot extends AbstractItem<Angkot, Angkot.ViewHolder> {
         @BindView((R.id.peta_angkot))
         ImageView peta_angkot;
 
+//        @BindView(R.id.jalur_masuk)
+//        TextView jalur_masuk;
+//
+//        @BindView(R.id.jalur_keluar)
+//        TextView jalur_keluar;
+
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
@@ -136,13 +143,21 @@ public class Angkot extends AbstractItem<Angkot, Angkot.ViewHolder> {
         public void bindView(Angkot item, List<Object> payloads) {
             nama_angkot.setText(item.getNama());
             rute_angkot.setText(item.getRute());
-            Glide.with(itemView.getContext()).load("https://cctv.putraprima.id/uploads/"+item.getPeta_keluar()).into(peta_angkot);
+//            jalur_masuk.setText(item.getJalur_masuk());
+//            jalur_keluar.setText(item.getJalur_keluar());
+            Glide.with(itemView.getContext())
+                    .setDefaultRequestOptions(new RequestOptions().timeout(300000))
+                    .load("https://cctv.putraprima.id/uploads/"+item.getPeta_keluar())
+                    .dontTransform()
+                    .into(peta_angkot);
         }
 
         @Override
         public void unbindView(Angkot item) {
             nama_angkot.setText(null);
             rute_angkot.setText(null);
+//            jalur_masuk.setText(null);
+//            jalur_keluar.setText(null);
         }
     }
 }

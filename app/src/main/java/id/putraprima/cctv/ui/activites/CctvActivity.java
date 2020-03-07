@@ -42,7 +42,9 @@ public class CctvActivity extends AppCompatActivity {
                 .build();
         playerView.setPlayer(player);
 
-        Uri uri = Uri.parse(getString(R.string.hls_gcp_work));
+        Bundle bundle = getIntent().getExtras();
+        String stream_url = bundle.getString("stream_url");
+        Uri uri = Uri.parse(stream_url);
         MediaSource mediaSource = buildMediaSource(uri);
 
         player.setPlayWhenReady(playWhenReady);
